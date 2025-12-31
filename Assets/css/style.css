@@ -1,0 +1,1025 @@
+/* navbar burger right justified */
+/* Move hamburger menu to the right side on mobile */
+@media (max-width: 991.98px) {
+    .navbar-toggler {
+        margin-left: auto;
+        order: 2;
+    }
+    
+    /* If you want to push brand/logo to the left */
+    .navbar-brand {
+        order: 1;
+    }
+    
+    /* Optional: Ensure navbar collapse is below both */
+    .navbar-collapse {
+        order: 3;
+        width: 100%;
+    }
+}
+
+/* end */
+
+      html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevents horizontal scrolling gaps */
+}
+
+
+
+
+.nav-link.active {
+  font-weight: 600;
+  color: #0d6efd !important;
+}
+
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flow-root; /* Prevents margin collapse */
+    width: 100%;
+    overflow-x: hidden; /* Stops horizontal shifting */
+}
+
+/* Ensure padding doesn't push width past 100% */
+* {
+    box-sizing: border-box;
+}
+
+        .social-icons a {
+            width: 35px;
+            height: 35px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: rgba(255,255,255,0.1);
+            color: white;
+            border-radius: 50%;
+            margin-right: 10px;
+            transition: 0.3s;
+        }
+
+        .social-icons a:hover {
+            background: var(--primary-blue);
+            transform: translateY(-3px);
+        }
+
+        .footer-bottom {
+            background: #1a1e21;
+            padding: 20px 0;
+            font-size: 0.9rem;
+        }
+        :root {
+            --primary-blue: rgb(38, 38, 222);
+            --hover-blue: #1a1aab;
+        }
+
+        body {
+            background-color: #f4f7f6;
+            font-family: 'Segoe UI', sans-serif;
+        }
+
+        /* Full width background wrapper */
+        #search-field {
+            width: 100%;
+            background: linear-gradient(rgba(36, 31, 31, 0.3), rgba(0,0,0,0.3)), 
+                        url('../../img/backimage.jpg');
+            background-size: cover;
+            background-position: center;
+            padding: 60px 0;
+            min-height: 400px;
+        }
+
+        .booking-container {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-top: 5px solid var(--primary-blue);
+        }
+
+        /* Nav Pills Styling */
+        .nav-pills .nav-link {
+            color: #333;
+            font-weight: 600;
+            border-radius: 30px;
+            padding: 10px 25px;
+            margin: 0 5px;
+            transition: 0.3s;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: var(--primary-blue) !important;
+            color: white !important;
+        }
+
+        /* Form Controls */
+        .form-label {
+            font-size: 0.85rem;
+            font-weight: 700;
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        .form-control {
+            height: 50px;
+            border: 1px solid #ddd;
+        }
+
+        .btn-search {
+            background-color: var(--primary-blue);
+            color: white;
+            font-weight: bold;
+            height: 50px;
+            border-radius: 8px;
+            width: 100%;
+            border: none;
+        }
+
+        .btn-search:hover {
+            background-color: var(--hover-blue);
+            color: white;
+        }
+
+        /* Holiday Cards Styling */
+        .holiday-card {
+            text-decoration: none;
+            color: inherit;
+            display: block;
+            background: white;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: 0.3s;
+            height: 100%;
+        }
+
+        .holiday-card:hover {
+            transform: translateY(-5px);
+            color: inherit;
+        }
+
+        .img-wrapper { position: relative; height: 200px; }
+        .img-wrapper img { width: 100%; height: 100%; object-fit: cover; }
+
+        .badge-sale {
+            position: absolute; top: 10px; left: 10px;
+            background: #d9232d; color: white; padding: 2px 10px; border-radius: 4px; font-weight: bold;
+        }
+
+        /* Support Header */
+        .support-box { font-size: 0.9rem; line-height: 1.2; text-align: right; }
+
+        /* Secondary Navbar Hover */
+        .navbar-nav .nav-item:hover {
+            background-color: var(--primary-blue);
+            border-radius: 4px;
+        }
+
+        :root {
+            --primary-text: #0f172a;
+            --secondary-text: #475569;
+            --icon-bg: #f8f9fa;
+            --accent-color: #f59e0b; /* Yellow/Gold for accents */
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: #ffffff;
+            padding: 40px 20px;
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .features-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--primary-text);
+            margin-bottom: 40px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 32px 48px;
+        }
+
+        .feature-item {
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
+        }
+
+        .icon-circle {
+            background-color: var(--icon-bg);
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-shrink: 0;
+            color: var(--primary-text);
+        }
+
+        .feature-content h3 {
+            margin: 0 0 4px 0;
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-text);
+        }
+
+        .feature-content p {
+            margin: 0;
+            font-size: 15px;
+            color: var(--secondary-text);
+            line-height: 1.4;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .features-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+
+      /* feature icon and css  */
+
+.feature-icon-circle {
+        width: 64px;
+        height: 64px;
+        background-color: #f8f9fa;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-shrink: 0;
+        font-size: 1.5rem;
+        color: #000;
+    }
+    
+    .feature-title {
+        font-weight: 700;
+        font-size: 1.1rem;
+        margin-bottom: 2px;
+    }
+
+    .feature-text {
+        color: #6c757d;
+        font-size: 0.95rem;
+        line-height: 1.4;
+    }
+
+  /* Footer Styling */
+        footer {
+            background-color: #212529; /* Matches your dark navbar */
+            color: #ccc;
+        }
+
+        footer h5 {
+            color: white;
+            font-size: 1.1rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+        }
+
+        footer h5::after {
+            content: '';
+            position: absolute;
+            left: 0;
+            bottom: -8px;
+            width: 40px;
+            height: 2px;
+            background-color: var(--primary-blue);
+        }
+
+        footer ul li {
+            margin-bottom: 10px;
+        }
+
+        footer ul li a {
+            color: #ccc;
+            text-decoration: none;
+            transition: 0.3s;
+        }
+
+        footer ul li a:hover {
+            color: var(--primary-blue);
+            padding-left: 5px;
+        }
+
+
+/* this is the new code for the responsive search field flight  */
+
+
+<!-- Add this CSS to your style.css file -->
+<style>
+/* Search Navigation */
+.search-nav {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+}
+
+.search-nav .nav-link {
+    padding: 15px 20px;
+    border: none;
+    background: none;
+    font-weight: 600;
+    color: #495057;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    transition: all 0.3s;
+    border-bottom: 3px solid transparent;
+}
+
+.search-nav .nav-link:hover {
+    background-color: rgba(38, 38, 222, 0.05);
+}
+
+.search-nav .nav-link.active {
+    color: var(--primary-blue);
+    border-bottom: 3px solid var(--primary-blue);
+    background-color: white;
+}
+
+/* Search Options */
+.search-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.search-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-text);
+    margin: 0;
+}
+
+.options-group {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    cursor: pointer;
+}
+
+.option-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-blue);
+}
+
+/* Form Grid */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form Inputs */
+.input-box {
+    position: relative;
+}
+
+.input-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+}
+
+.form-input {
+    width: 100%;
+    height: 52px;
+    padding: 0 15px 0 45px;
+    border: 1px solid var(--border-color, #ddd);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--primary-text);
+    transition: all 0.3s;
+    background-color: white;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(38, 38, 222, 0.1);
+}
+
+/* Passenger Selector */
+.passenger-selector {
+    padding: 10px 15px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.btn-passenger {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #dee2e6;
+    background: white;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-passenger:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.passenger-count {
+    font-size: 18px;
+    font-weight: 600;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Search Button */
+.btn-search {
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: bold;
+    padding: 15px 40px;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.3s;
+    font-size: 1.1rem;
+}
+
+.btn-search:hover {
+    background-color: var(--hover-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(38, 38, 222, 0.2);
+}
+</style>
+
+
+
+
+
+
+
+
+
+
+/* Hotel Room/Guests Selector Improvements */
+.room-guests-selector .form-label {
+    min-width: 60px;
+}
+
+.room-guests-selector > div {
+    margin-bottom: 1rem;
+}
+
+.room-guests-selector > div:last-child {
+    margin-bottom: 0;
+}
+
+@media (max-width: 768px) {
+    .room-guests-selector > div {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .room-guests-selector .form-label {
+        margin-bottom: 0.5rem;
+    }
+}
+
+
+
+
+
+
+/* <!-------------------------------------deepcss-style--------------------------------------------------------> */
+/* Passenger type selector */
+.passenger-type-selector {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.passenger-type-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.passenger-type-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.passenger-type-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-text);
+    min-width: 100px;
+}
+
+.passenger-type-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.passenger-type-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #dee2e6;
+    background: white;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.passenger-type-btn:hover:not(:disabled) {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.passenger-type-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.passenger-type-count {
+    font-size: 16px;
+    font-weight: 600;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Contact info form */
+.contact-form-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 15px;
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+@media (max-width: 768px) {
+    .contact-form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.contact-input-box {
+    position: relative;
+}
+
+.contact-input-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    z-index: 1;
+}
+
+.contact-input {
+    width: 100%;
+    height: 45px;
+    padding: 0 15px 0 40px;
+    border: 1px solid #ddd;
+    border-radius: 6px;
+    font-size: 14px;
+    color: var(--primary-text);
+    transition: all 0.3s;
+    background-color: white;
+}
+
+.contact-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(38, 38, 222, 0.1);
+}
+
+/* Cabin class selector */
+.cabin-class-selector {
+    margin-top: 15px;
+}
+
+.cabin-class-buttons {
+    display: flex;
+    gap: 10px;
+    flex-wrap: wrap;
+}
+
+.cabin-class-btn {
+    padding: 8px 16px;
+    border: 2px solid #dee2e6;
+    background: white;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.cabin-class-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.cabin-class-btn.active {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+/* Return date visibility */
+.return-date-hidden {
+    opacity: 0.5;
+    pointer-events: none;
+}
+
+/* Child age selector */
+.child-age-selector {
+    display: none;
+    margin-top: 10px;
+    padding: 10px;
+    background-color: #f9f9f9;
+    border-radius: 6px;
+}
+
+.child-age-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 8px;
+}
+
+.child-age-item:last-child {
+    margin-bottom: 0;
+}
+
+.child-age-label {
+    font-size: 13px;
+    color: var(--secondary-text);
+}
+
+.child-age-select {
+    width: 80px;
+    padding: 4px 8px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-size: 13px;
+}
+
+
+
+
+
+
+
+
+
+
+/* Cabin class button */
+
+
+
+/* Cabin class selector - UPDATED FOR SELECT ELEMENT */
+.cabin-class-selector {
+    margin-top: 15px;
+}
+
+.cabin-class-buttons {
+    display: block;
+    width: 100%;
+}
+
+.cabin-class-buttons select {
+    width: 100%;
+    max-width: 250px;
+    padding: 12px 16px;
+    border: 2px solid #dee2e6;
+    background-color: white;
+    border-radius: 6px;
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-text);
+    cursor: pointer;
+    transition: all 0.3s;
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%23333' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 12px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+.cabin-class-buttons select:hover {
+    border-color: var(--primary-blue);
+}
+
+.cabin-class-buttons select:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(38, 38, 222, 0.1);
+}
+
+
+
+
+
+
+/* cabin class select  */
+
+
+
+
+/* Fix for hotel and holiday tabs */
+.search-tab-content {
+    display: none;
+}
+
+.search-tab-content.active {
+    display: block;
+}
+
+/* Hotel tab improvements */
+.room-guests-selector {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.room-guests-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 8px 0;
+    border-bottom: 1px solid #eee;
+}
+
+.room-guests-row:last-child {
+    border-bottom: none;
+}
+
+.room-guests-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-text);
+    min-width: 100px;
+}
+
+.room-guests-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.room-guests-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #dee2e6;
+    background: white;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.room-guests-btn:hover:not(:disabled) {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.room-guests-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.room-guests-count {
+    font-size: 16px;
+    font-weight: 600;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Fix for search tabs on mobile */
+@media (max-width: 768px) {
+    .search-nav {
+        flex-wrap: wrap;
+    }
+    
+    .search-nav .nav-link {
+        flex: 1 0 calc(50% - 8px);
+        margin-bottom: 8px;
+    }
+}
+
+/* Remove unnecessary cruise styles */
+#cruise-tab {
+    display: none !important;
+}
+
+/* Fix for hotel and holiday tabs */
+.search-tab-content {
+    display: none;
+}
+
+.search-tab-content.active {
+    display: block;
+}
+
+/* Return trip functionality */
+.return-date-hidden {
+    opacity: 0.6;
+    pointer-events: none;
+    background-color: #f8f9fa;
+}
+
+/* Hotel tab improvements */
+.hotel-guests-selector {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 15px;
+    margin-top: 15px;
+}
+
+.hotel-guests-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 10px;
+    padding: 8px 0;
+    border-bottom: 1px solid #dee2e6;
+}
+
+.hotel-guests-row:last-child {
+    border-bottom: none;
+    margin-bottom: 0;
+}
+
+.hotel-guests-label {
+    font-size: 14px;
+    font-weight: 600;
+    color: var(--primary-text);
+    min-width: 100px;
+}
+
+.hotel-guests-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.hotel-guests-btn {
+    width: 30px;
+    height: 30px;
+    border: 1px solid #dee2e6;
+    background: white;
+    border-radius: 50%;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.hotel-guests-btn:hover:not(:disabled) {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.hotel-guests-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+.hotel-guests-count {
+    font-size: 16px;
+    font-weight: 600;
+    min-width: 30px;
+    text-align: center;
+}
+
+/* Fix for search tabs on mobile */
+@media (max-width: 768px) {
+    .search-nav {
+        flex-wrap: wrap;
+    }
+    
+    .search-nav .nav-link {
+        flex: 1 0 calc(33.333% - 8px);
+        margin-bottom: 8px;
+    }
+}
+
+/* Holiday specific styles */
+.holiday-duration-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.holiday-option-btn {
+    padding: 12px;
+    border: 2px solid #dee2e6;
+    background: white;
+    border-radius: 8px;
+    font-size: 14px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s;
+    text-align: center;
+}
+
+.holiday-option-btn:hover {
+    border-color: var(--primary-blue);
+    color: var(--primary-blue);
+}
+
+.holiday-option-btn.active {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+/* Fix for date inputs */
+.form-input[type="date"] {
+    padding-right: 15px;
+}
+
+/* Improve responsive layout */
+@media (max-width: 992px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .search-nav .nav-link {
+        flex: 1 0 100%;
+    }
+}

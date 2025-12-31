@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Premium Hotel Bookings</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="Assets/css/style.css">
+</head>
+<body class="d-flex flex-column min-vh-100">
+
+<!-------------------------------header-navbar---------------------------------------------------------->
+<header class="navbar navbar-dark py-2" style="background-color: var(--primary-blue);">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="img/8_1sasa11.jpg" alt="logo" style="width:40px;">
+            <span class="ms-2 fw-bold">World-Tour</span>
+        </a>
+        <div class="support-box text-white">
+            <div>Call for 24x7 support</div>
+            <div class="fw-bold">+92 222 222222</div>
+        </div>
+    </div>
+</header>
+
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link text-white px-3" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="Flights.html">Flights</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="hotels2.html">Hotels</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="Holidays.html">Holidays</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="Bookingcon.html">Booking Conditions</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="About-us.html">About us</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="contact-us.html">Contact us</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="Faq2.html" target="_blank">FAQ</a></li>
+            </ul>
+        </div>
+    </div>
+</nav>
+
+
+
+
+
+
+
+    <header id="search-field" class="d-flex align-items-center mb-5">
+        <div class="container">
+            <div class="booking-container p-4 p-md-5 shadow-lg">
+                <h2 class="mb-2 fw-bold" style="color: var(--primary-text);">Find Your Ideal Stay</h2>
+                <p class="text-muted mb-4">Over 250,000 hotels worldwide at the best guaranteed prices.</p>
+                
+                <form class="row g-3">
+                    <div class="col-lg-4">
+                        <label class="form-label">Location</label>
+                        <input type="text" class="form-control" placeholder="City, landmark, or hotel name">
+                    </div>
+                    <div class="col-lg-2">
+                        <label class="form-label">Check-in</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-lg-2">
+                        <label class="form-label">Check-out</label>
+                        <input type="date" class="form-control">
+                    </div>
+                    <div class="col-lg-2">
+                        <label class="form-label">Rooms/Guests</label>
+                        <select class="form-select border" style="height: 50px;">
+                            <option>1 Room, 1 Adult</option>
+                            <option selected>1 Room, 2 Adults</option>
+                            <option>2 Rooms, 4 Adults</option>
+                        </select>
+                    </div>
+                    <div class="col-lg-2 d-flex align-items-end">
+                        <button type="submit" class="btn btn-search w-100">SEARCH</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </header>
+
+    <main class="flex-grow-1">
+        <section class="container mb-5">
+            <div class="features-container">
+                <h2 class="features-title text-center mb-5">Experience The Difference</h2>
+                <div class="features-grid">
+                    <div class="feature-item">
+                        <div class="icon-circle"><i class="fas fa-check-circle"></i></div>
+                        <div class="feature-content">
+                            <h3>Best Price Guarantee</h3>
+                            <p>Find a lower price elsewhere? We'll match it and give you a $50 credit.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon-circle"><i class="fas fa-clock"></i></div>
+                        <div class="feature-content">
+                            <h3>Free Cancellation</h3>
+                            <p>Flexible plans on most rooms. Change your mind up to 24 hours before check-in.</p>
+                        </div>
+                    </div>
+                    <div class="feature-item">
+                        <div class="icon-circle"><i class="fas fa-headset"></i></div>
+                        <div class="feature-content">
+                            <h3>24/7 Concierge</h3>
+                            <p>Our travel experts are ready to assist you in over 15 languages.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="container mb-5">
+            <div class="row">
+                <aside class="col-lg-3 d-none d-lg-block">
+                    <div class="bg-white p-4 rounded shadow-sm border-top border-primary border-4">
+                        <h5 class="feature-title mb-4">Refine Results</h5>
+                        <p class="form-label mb-2">Property Type</p>
+                        <div class="form-check mb-2"><input class="form-check-input" type="checkbox" checked> <label class="small">Hotels</label></div>
+                        <div class="form-check mb-2"><input class="form-check-input" type="checkbox"> <label class="small">Apartments</label></div>
+                        <div class="form-check mb-4"><input class="form-check-input" type="checkbox"> <label class="small">Resorts</label></div>
+                        
+                        <p class="form-label mb-2">Guest Rating</p>
+                        <div class="form-check mb-2"><input class="form-radio-input" type="radio" name="rating"> <label class="small">Excellent (9+)</label></div>
+                        <div class="form-check mb-2"><input class="form-radio-input" type="radio" name="rating"> <label class="small">Very Good (8+)</label></div>
+                    </div>
+                </aside>
+
+                <div class="col-lg-9">
+                    <h2 class="features-title mb-4">Handpicked Stays</h2>
+                    
+                    <div class="holiday-card mb-4 h-auto shadow-sm">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <div class="img-wrapper h-100">
+                                    <span class="badge-sale">Recommended</span>
+                                    <img src="../website/img/sunsetpalm.jpg" class="img-fluid h-100 w-100" style="object-fit: cover;">
+                                </div>
+                            </div>
+                            <div class="col-md-8 p-4">
+                                <div class="d-flex justify-content-between">
+                                    <h4 class="feature-title">Royal Emerald Suites</h4>
+                                    <span class="badge bg-success" style="height: fit-content;">9.4 Superb</span>
+                                </div>
+                                <p class="text-muted small"><i class="fas fa-map-marker-alt me-1"></i> Kensington, London - 0.5 miles from center</p>
+                                <p class="feature-text mt-3">This boutique hotel offers a blend of Victorian architecture and modern luxury. Includes a Michelin-star restaurant and a private rooftop lounge.</p>
+                                <div class="mt-3 text-muted small">
+                                    <span class="me-3"><i class="fas fa-coffee text-primary me-1"></i> Breakfast Included</span>
+                                    <span><i class="fas fa-shield-virus text-primary me-1"></i> Extra Safety Measures</span>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="h3 fw-bold text-primary mb-0">$340</span>
+                                        <span class="small text-muted">/night</span>
+                                    </div>
+                                    <a href="#" class="btn btn-search w-auto px-5">Select Room</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="holiday-card mb-4 h-auto shadow-sm">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <div class="img-wrapper h-100">
+                                    <img src="../website/img/royal-hotel.jpg" class="img-fluid h-100 w-100" style="object-fit: cover;">
+                                </div>
+                            </div>
+                            <div class="col-md-8 p-4">
+                                <div class="d-flex justify-content-between">
+                                    <h4 class="feature-title">Sunset Palms Marina</h4>
+                                    <span class="badge bg-success" style="height: fit-content;">8.9 Great</span>
+                                </div>
+                                <p class="text-muted small"><i class="fas fa-map-marker-alt me-1"></i> Dubai Marina, UAE</p>
+                                <p class="feature-text mt-3">Breathtaking views of the Persian Gulf. Features one of the largest infinity pools in the region and direct beach access.</p>
+                                <div class="mt-3 text-muted small">
+                                    <span class="me-3"><i class="fas fa-parking text-primary me-1"></i> Free Parking</span>
+                                    <span><i class="fas fa-swimming-pool text-primary me-1"></i> Infinity Pool</span>
+                                </div>
+                                <hr>
+                                <div class="d-flex justify-content-between align-items-center">
+                                    <div>
+                                        <span class="h3 fw-bold text-primary mb-0">$215</span>
+                                        <span class="small text-muted">/night</span>
+                                    </div>
+                                    <a href="#" class="btn btn-search w-auto px-5">Select Room</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!--------------------------------------footer----------------------------------------------------->
+<footer class="pt-5 mt-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="img/8_1sasa11.jpg" alt="logo" style="width:40px;">
+                    <span class="ms-2 fw-bold text-white h4 mb-0">World-Tour</span>
+                </div>
+                <p>Providing budget-friendly holiday packages and seamless travel experiences since 2010. Your journey starts with a single click.</p>
+                <div class="social-icons mt-4">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Hot Deals</a></li>
+                    <li><a href="#">Flights</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Holidays</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5>Support</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5>Contact Info</h5>
+                <ul class="list-unstyled text-white">
+                    <li class="d-flex align-items-start mb-3">
+                        <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
+                        <span>123 Travel Plaza, Liberty Street, Islamabad, Pakistan</span>
+                    </li>
+                    <li class="d-flex align-items-center mb-3">
+                        <i class="bi bi-telephone-fill me-2 text-primary"></i>
+                        <span>+92 222 222222</span>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="bi bi-envelope-fill me-2 text-primary"></i>
+                        <span>support@worldtour.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 World-Tour Budget Holidays. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <img src="https://i.imgur.com/vH8996H.png" alt="Payment Methods" style="height: 30px; opacity: 0.8;">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

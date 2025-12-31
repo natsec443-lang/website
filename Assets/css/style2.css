@@ -1,0 +1,577 @@
+/* ===========================================
+   RESET & GLOBAL STYLES
+   =========================================== */
+html, body {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    overflow-x: hidden; /* Prevents horizontal scrolling gaps */
+}
+
+* {
+    box-sizing: border-box;
+}
+
+/* ===========================================
+   CSS VARIABLES (Design System)
+   =========================================== */
+:root {
+    --primary-blue: rgb(38, 38, 222);
+    --hover-blue: #1a1aab;
+    --primary-text: #0f172a;
+    --secondary-text: #475569;
+    --icon-bg: #f8f9fa;
+    --accent-color: #f59e0b;
+    --border-color: #ddd;
+}
+
+/* ===========================================
+   BODY & TYPOGRAPHY
+   =========================================== */
+body {
+    margin: 0 !important;
+    padding: 0 !important;
+    display: flow-root; /* Prevents margin collapse */
+    width: 100%;
+    overflow-x: hidden; /* Stops horizontal shifting */
+    background-color: #f4f7f6;
+    font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, sans-serif;
+}
+
+/* ===========================================
+   NAVIGATION & HEADER
+   =========================================== */
+.nav-link.active {
+    font-weight: 600;
+    color: #0d6efd !important;
+}
+
+.support-box {
+    font-size: 0.9rem;
+    line-height: 1.2;
+    text-align: right;
+}
+
+.navbar-nav .nav-item:hover {
+    background-color: var(--primary-blue);
+    border-radius: 4px;
+}
+
+/* ===========================================
+   SEARCH FIELD & BACKGROUND
+   =========================================== */
+#search-field {
+    width: 100%;
+    background: linear-gradient(rgba(36, 31, 31, 0.3), rgba(0,0,0,0.3)), 
+                url('../../img/backimage.jpg');
+    background-size: cover;
+    background-position: center;
+    padding: 60px 0;
+    min-height: 400px;
+}
+
+.booking-container {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 12px;
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+    border-top: 5px solid var(--primary-blue);
+    padding: 2rem 1rem;
+}
+
+@media (min-width: 768px) {
+    .booking-container {
+        padding: 3rem 2rem;
+    }
+}
+
+/* ===========================================
+   SEARCH NAVIGATION TABS
+   =========================================== */
+.search-nav {
+    background-color: #f8f9fa;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+    padding: 4px;
+    display: flex;
+    margin-bottom: 2rem;
+}
+
+.search-nav .nav-link {
+    padding: 12px 20px;
+    border: none;
+    background: none;
+    font-weight: 600;
+    color: #495057;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    transition: all 0.3s;
+    border-radius: 30px;
+}
+
+.search-nav .nav-link:hover {
+    background-color: rgba(38, 38, 222, 0.05);
+}
+
+.search-nav .nav-link.active {
+    color: white !important;
+    background-color: var(--primary-blue) !important;
+    box-shadow: 0 2px 8px rgba(38, 38, 222, 0.3);
+}
+
+/* ===========================================
+   SEARCH OPTIONS & CONTROLS
+   =========================================== */
+.search-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+    margin-bottom: 1.5rem;
+}
+
+.search-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-text);
+    margin: 0;
+}
+
+.options-group {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    cursor: pointer;
+}
+
+.option-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-blue);
+}
+
+/* ===========================================
+   FORM LAYOUT & INPUTS
+   =========================================== */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    margin-bottom: 1.5rem;
+}
+
+@media (max-width: 992px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-label {
+    font-size: 0.85rem;
+    font-weight: 700;
+    color: #444;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+.input-box {
+    position: relative;
+}
+
+.input-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    z-index: 1;
+}
+
+.form-input {
+    width: 100%;
+    height: 52px;
+    padding: 0 15px 0 45px;
+    border: 1px solid var(--border-color);
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--primary-text);
+    transition: all 0.3s;
+    background-color: white;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(38, 38, 222, 0.1);
+}
+
+.form-input select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+/* ===========================================
+   PASSENGER & ROOM SELECTORS
+   =========================================== */
+.passenger-selector, .room-guests-selector {
+    padding: 12px 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+    display: flex;
+    align-items: center;
+}
+
+.passenger-selector .form-label,
+.room-guests-selector .form-label {
+    margin: 0;
+    margin-right: 1rem;
+}
+
+.btn-passenger {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #dee2e6;
+    background: white;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-passenger:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.passenger-count {
+    font-size: 18px;
+    font-weight: 600;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Room/Guests buttons */
+.btn-sm.btn-outline-secondary {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* ===========================================
+   SEARCH BUTTON
+   =========================================== */
+.btn-search {
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: bold;
+    padding: 15px 40px;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.3s;
+    font-size: 1.1rem;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.btn-search:hover {
+    background-color: var(--hover-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(38, 38, 222, 0.2);
+    color: white;
+}
+
+.btn-search i {
+    margin-right: 8px;
+}
+
+/* ===========================================
+   HOLIDAY CARDS
+   =========================================== */
+.holiday-card {
+    text-decoration: none;
+    color: inherit;
+    display: block;
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: 0.3s;
+    height: 100%;
+}
+
+.holiday-card:hover {
+    transform: translateY(-5px);
+    color: inherit;
+    text-decoration: none;
+}
+
+.img-wrapper {
+    position: relative;
+    height: 200px;
+    overflow: hidden;
+}
+
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s;
+}
+
+.holiday-card:hover .img-wrapper img {
+    transform: scale(1.05);
+}
+
+.badge-sale {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: #d9232d;
+    color: white;
+    padding: 2px 10px;
+    border-radius: 4px;
+    font-weight: bold;
+    z-index: 2;
+}
+
+/* ===========================================
+   FEATURES SECTION
+   =========================================== */
+.features-container {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.features-title {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--primary-text);
+    margin-bottom: 40px;
+}
+
+.feature-icon-circle {
+    width: 64px;
+    height: 64px;
+    background-color: #f8f9fa;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    font-size: 1.5rem;
+    color: #000;
+}
+
+.feature-title {
+    font-weight: 700;
+    font-size: 1.1rem;
+    margin-bottom: 2px;
+}
+
+.feature-text {
+    color: #6c757d;
+    font-size: 0.95rem;
+    line-height: 1.4;
+}
+
+/* ===========================================
+   REVIEWS CAROUSEL
+   =========================================== */
+.review-card {
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    padding: 2rem;
+}
+
+.review-stars {
+    color: #ffc107;
+    font-size: 1.5rem;
+    margin-bottom: 1rem;
+}
+
+.italic {
+    font-style: italic;
+}
+
+/* ===========================================
+   FOOTER
+   =========================================== */
+footer {
+    background-color: #212529;
+    color: #ccc;
+    padding-top: 3rem;
+}
+
+footer h5 {
+    color: white;
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+footer h5::after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -8px;
+    width: 40px;
+    height: 2px;
+    background-color: var(--primary-blue);
+}
+
+footer ul {
+    list-style: none;
+    padding-left: 0;
+}
+
+footer ul li {
+    margin-bottom: 10px;
+}
+
+footer ul li a {
+    color: #ccc;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+footer ul li a:hover {
+    color: var(--primary-blue);
+    padding-left: 5px;
+}
+
+.social-icons a {
+    width: 35px;
+    height: 35px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.1);
+    color: white;
+    border-radius: 50%;
+    margin-right: 10px;
+    transition: 0.3s;
+    text-decoration: none;
+}
+
+.social-icons a:hover {
+    background: var(--primary-blue);
+    transform: translateY(-3px);
+}
+
+.footer-bottom {
+    background: #1a1e21;
+    padding: 20px 0;
+    font-size: 0.9rem;
+    margin-top: 3rem;
+}
+
+/* ===========================================
+   CRUISE FORM SPECIFIC
+   =========================================== */
+#cruise-form .form-input {
+    padding-left: 45px;
+}
+
+#cruise-form .row {
+    margin-bottom: 20px;
+}
+
+/* ===========================================
+   UTILITY CLASSES
+   =========================================== */
+.text-align-right {
+    text-align: right;
+}
+
+/* ===========================================
+   RESPONSIVE ADJUSTMENTS
+   =========================================== */
+@media (max-width: 768px) {
+    .search-options {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .options-group {
+        width: 100%;
+    }
+    
+    .passenger-selector,
+    .room-guests-selector {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    
+    .passenger-selector .form-label,
+    .room-guests-selector .form-label {
+        margin-bottom: 0.5rem;
+    }
+    
+    .btn-search {
+        width: 100%;
+    }
+    
+    .text-md-end {
+        text-align: left !important;
+    }
+}
+
+@media (max-width: 576px) {
+    .booking-container {
+        padding: 1.5rem 1rem;
+    }
+    
+    .search-nav {
+        flex-direction: column;
+    }
+    
+    .search-nav .nav-link {
+        margin: 2px 0;
+    }
+    
+    .form-footer .row > div {
+        width: 100%;
+    }
+}

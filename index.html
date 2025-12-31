@@ -1,0 +1,1356 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>World-Tour | Budget Holidays</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link rel="stylesheet" href="Assets\css\style.css">
+
+
+<style>
+
+
+.search-nav .nav-link.active {
+    color: white !important;
+    background-color: var(--primary-blue) !important;
+}
+    /* Search Navigation Tabs */
+.search-nav {
+    background-color: #f8f9fa;
+    border-radius: 30px;
+    overflow: hidden;
+    border: 1px solid #dee2e6;
+    padding: 4px;
+}
+
+.search-nav .nav-link {
+    padding: 12px 20px;
+    border: none;
+    background: none;
+    font-weight: 600;
+    color: #495057;
+    cursor: pointer;
+    flex: 1;
+    text-align: center;
+    transition: all 0.3s;
+    border-radius: 30px;
+}
+
+.search-nav .nav-link:hover {
+    background-color: rgba(38, 38, 222, 0.05);
+}
+
+.search-nav .nav-link.active {
+    color: white;
+    background-color: var(--primary-blue);
+    box-shadow: 0 2px 8px rgba(38, 38, 222, 0.3);
+}
+
+/* Search Options */
+.search-options {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #eee;
+}
+
+.search-title {
+    font-size: 1.25rem;
+    font-weight: 700;
+    color: var(--primary-text);
+    margin: 0;
+}
+
+.options-group {
+    display: flex;
+    gap: 25px;
+    flex-wrap: wrap;
+}
+
+.option-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+    cursor: pointer;
+}
+
+.option-checkbox {
+    width: 18px;
+    height: 18px;
+    accent-color: var(--primary-blue);
+}
+
+/* Form Grid for Flight/Hotel/Holiday */
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+}
+
+@media (max-width: 992px) {
+    .form-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 576px) {
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Form Inputs */
+.input-box {
+    position: relative;
+}
+
+.input-box i {
+    position: absolute;
+    left: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #6c757d;
+    z-index: 1;
+}
+
+.form-input {
+    width: 100%;
+    height: 52px;
+    padding: 0 15px 0 45px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-size: 16px;
+    color: var(--primary-text);
+    transition: all 0.3s;
+    background-color: white;
+}
+
+.form-input:focus {
+    outline: none;
+    border-color: var(--primary-blue);
+    box-shadow: 0 0 0 3px rgba(38, 38, 222, 0.1);
+}
+
+.form-input select {
+    appearance: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' fill='%236c757d' viewBox='0 0 16 16'%3E%3Cpath d='M7.247 11.14 2.451 5.658C1.885 5.013 2.345 4 3.204 4h9.592a1 1 0 0 1 .753 1.659l-4.796 5.48a1 1 0 0 1-1.506 0z'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 15px center;
+    background-size: 16px;
+    padding-right: 40px;
+}
+
+/* Passenger/Room Selector */
+.passenger-selector, .room-guests-selector {
+    padding: 12px 20px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    border: 1px solid #dee2e6;
+}
+
+.btn-passenger {
+    width: 32px;
+    height: 32px;
+    border: 1px solid #dee2e6;
+    background: white;
+    border-radius: 50%;
+    font-size: 18px;
+    font-weight: bold;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s;
+}
+
+.btn-passenger:hover {
+    background-color: var(--primary-blue);
+    color: white;
+    border-color: var(--primary-blue);
+}
+
+.passenger-count {
+    font-size: 18px;
+    font-weight: 600;
+    min-width: 40px;
+    text-align: center;
+}
+
+/* Search Button */
+.btn-search {
+    background-color: var(--primary-blue);
+    color: white;
+    font-weight: bold;
+    padding: 15px 40px;
+    border-radius: 8px;
+    border: none;
+    transition: all 0.3s;
+    font-size: 1.1rem;
+}
+
+.btn-search:hover {
+    background-color: var(--hover-blue);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 12px rgba(38, 38, 222, 0.2);
+}
+
+/* Room/Guests buttons */
+.btn-sm.btn-outline-secondary {
+    width: 28px;
+    height: 28px;
+    padding: 0;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Cruise form specific */
+#cruise-form .form-input {
+    padding-left: 45px;
+}
+
+#cruise-form .row {
+    margin-bottom: 20px;
+}
+</style>
+
+
+
+
+ </head>
+
+<body>
+
+<header class="navbar navbar-dark py-2" style="background-color: var(--primary-blue);">
+    <div class="container-fluid">
+        <a class="navbar-brand d-flex align-items-center" href="#">
+            <img src="img/8_1sasa11.jpg" alt="logo" style="width:40px;">
+            <span class="ms-2 fw-bold">World-Tour</span>
+        </a>
+        <div class="support-box text-white">
+            <div>Call for 24x7 support</div>
+            <div class="fw-bold">+92 222 222222</div>
+        </div>
+    </div>
+</header>
+
+<
+<!-----------------------------------------searchfield-start--------------------------->
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
+    <div class="container-fluid">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#mainNav">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="mainNav">
+            <ul class="navbar-nav me-auto">
+                <li class="nav-item"><a class="nav-link text-white px-3" href="index.html">Home</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="Flights.html">Flights</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="hotels2.html">Hotels</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="Holidays.html">Holidays</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="Bookingcon.html">Booking Conditions</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="About-us.html">About us</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="contact-us.html">Contact us</a></li>
+                <li class="nav-item"><a class="nav-link text-white px-3" href="Faq2.html" target="_blank">FAQ</a></li>
+            </ul>
+        </div>
+    </div>
+  </nav>
+
+
+
+  <!--------------------------------------------------SEARCH-FIED-FOR-FLIGHTS-------------------------------------------------------------->
+
+<section id="search-field">
+    <div class="booking-container p-4 p-md-5 shadow-lg">
+        <!-- Main Tabs for Search Types -->
+        <div class="search-nav d-flex mb-4 rounded-pill" style="background-color: #f8f9fa; border: 1px solid #dee2e6;">
+            <button class="nav-link rounded-pill active" data-tab="flight">FLIGHT</button>
+            <button class="nav-link rounded-pill" data-tab="holiday">HOLIDAY</button>
+            <button class="nav-link rounded-pill" data-tab="hotel">HOTEL</button>
+        </div>
+
+        <!-- FLIGHT SEARCH -->
+        <div class="search-tab-content active" id="flight-tab">
+            <div class="search-options mb-4">
+                <h3 class="search-title m-0">Advanced Flight Search</h3>
+                <div class="options-group">
+                    <label class="option-item">
+                        <input type="checkbox" class="option-checkbox" id="return-trip" checked>
+                        <span>Return Trip</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" class="option-checkbox" id="flexible-dates">
+                        <span>+/-3 days</span>
+                    </label>
+                </div>
+            </div>
+
+            <form class="search-form" id="flight-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Departure Airport</label>
+                        <div class="input-box">
+                            <i class="bi bi-geo-alt"></i>
+                            <input type="text" class="form-input" placeholder="e.g., LHR" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Destination Airport</label>
+                        <div class="input-box">
+                            <i class="bi bi-geo-alt-fill"></i>
+                            <input type="text" class="form-input" placeholder="e.g., JFK" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Departure Date</label>
+                        <div class="input-box">
+                            <i class="bi bi-calendar-event"></i>
+                            <input type="date" class="form-input" id="departure-date" value="2026-01-03" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label" id="return-date-label">Return Date</label>
+                        <div class="input-box">
+                            <i class="bi bi-calendar-event-fill"></i>
+                            <input type="date" class="form-input" id="return-date" value="2026-01-10" required>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Cabin Class Selector -->
+                <div class="cabin-class-selector">
+                    <label class="form-label">Select Cabin Class</label>
+                    <div class="cabin-class-buttons">
+                        <select name="class" id="seat-class" class="form-select">
+                            <option value="Economy">Economy</option>
+                            <option value="Premium Economy">Premium Economy</option>
+                            <option value="Business Class">Business Class</option>
+                            <option value="First Class">First Class</option>
+                        </select>
+                    </div>
+                </div>
+
+                <!-- Passenger Type Selector -->
+                <div class="passenger-type-selector">
+                    <div class="passenger-type-row">
+                        <div class="passenger-type-label">Adults (12+ years)</div>
+                        <div class="passenger-type-controls">
+                            <button type="button" class="passenger-type-btn minus" data-type="adults" disabled>-</button>
+                            <span class="passenger-type-count" data-type="adults">1</span>
+                            <button type="button" class="passenger-type-btn plus" data-type="adults">+</button>
+                        </div>
+                    </div>
+                    <div class="passenger-type-row">
+                        <div class="passenger-type-label">Children (2-11 years)</div>
+                        <div class="passenger-type-controls">
+                            <button type="button" class="passenger-type-btn minus" data-type="children" disabled>-</button>
+                            <span class="passenger-type-count" data-type="children">0</span>
+                            <button type="button" class="passenger-type-btn plus" data-type="children">+</button>
+                        </div>
+                    </div>
+                    <div class="passenger-type-row">
+                        <div class="passenger-type-label">Infants (under 2)</div>
+                        <div class="passenger-type-controls">
+                            <button type="button" class="passenger-type-btn minus" data-type="infants" disabled>-</button>
+                            <span class="passenger-type-count" data-type="infants">0</span>
+                            <button type="button" class="passenger-type-btn plus" data-type="infants">+</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Child Age Selector -->
+                <div class="child-age-selector" id="child-age-selector" style="display: none;">
+                    <div class="form-label mb-2">Child Ages</div>
+                </div>
+
+                <!-- Contact Information -->
+                <div class="contact-form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Full Name</label>
+                        <div class="contact-input-box">
+                            <i class="bi bi-person"></i>
+                            <input type="text" class="contact-input" placeholder="Your full name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Email Address</label>
+                        <div class="contact-input-box">
+                            <i class="bi bi-envelope"></i>
+                            <input type="email" class="contact-input" placeholder="your.email@example.com" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Phone Number</label>
+                        <div class="contact-input-box">
+                            <i class="bi bi-telephone"></i>
+                            <input type="tel" class="contact-input" placeholder="+92 XXX XXXXXXX" required>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="form-footer mt-4">
+                    <div class="row align-items-center">
+                        <div class="col-md-6">
+                            <div class="total-passengers">
+                                <span class="fw-bold">Total Passengers: <span id="total-passengers">1</span></span>
+                            </div>
+                        </div>
+                        <div class="col-md-6 text-md-end mt-3 mt-md-0">
+                            <button type="submit" class="btn-search btn-lg">
+                                <i class="bi bi-search me-2"></i> SEARCH FLIGHTS
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </form>
+        </div>
+
+        <!-- HOTEL SEARCH -->
+        <div class="search-tab-content" id="hotel-tab">
+            <div class="search-options mb-4">
+                <h3 class="search-title m-0">Find Your Perfect Hotel</h3>
+                <div class="options-group">
+                    <label class="option-item">
+                        <input type="checkbox" class="option-checkbox" id="free-cancellation" checked>
+                        <span>Free Cancellation</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" class="option-checkbox" id="breakfast-included">
+                        <span>Breakfast Included</span>
+                    </label>
+                </div>
+            </div>
+
+            <form class="search-form" id="hotel-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Destination</label>
+                        <div class="input-box">
+                            <i class="bi bi-geo-alt"></i>
+                            <input type="text" class="form-input" placeholder="City, region, or hotel name" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Check-in</label>
+                        <div class="input-box">
+                            <i class="bi bi-calendar-event"></i>
+                            <input type="date" class="form-input" id="hotel-checkin" value="2026-01-03" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Check-out</label>
+                        <div class="input-box">
+                            <i class="bi bi-calendar-event-fill"></i>
+                            <input type="date" class="form-input" id="hotel-checkout" value="2026-01-10" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Hotel Star Rating</label>
+                        <div class="input-box">
+                            <i class="bi bi-star"></i>
+                            <select class="form-input" id="hotel-rating">
+                                <option value="">Any Rating</option>
+                                <option value="5">5 Stars</option>
+                                <option value="4">4 Stars</option>
+                                <option value="3">3 Stars</option>
+                                <option value="2">2 Stars</option>
+                                <option value="1">1 Star</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+
+
+
+        
+                <div class="text-center mt-4">
+                    <button type="submit" class="btn-search btn-lg">
+                        <i class="bi bi-search me-2"></i> SEARCH HOTELS
+                    </button> 
+                </div>
+            </form>
+        </div>
+
+        <!-- HOLIDAY SEARCH -->
+        <div class="search-tab-content" id="holiday-tab">
+            <div class="search-options mb-4">
+                <h3 class="search-title m-0">Find Your Dream Holiday</h3>
+                <div class="options-group">
+                    <label class="option-item">
+                        <input type="checkbox" class="option-checkbox" id="all-inclusive" checked>
+                        <span>All Inclusive</span>
+                    </label>
+                    <label class="option-item">
+                        <input type="checkbox" class="option-checkbox" id="beach-holiday">
+                        <span>Beach Holiday</span>
+                    </label>
+                </div>
+            </div>
+
+            <form class="search-form" id="holiday-form">
+                <div class="form-grid">
+                    <div class="form-group">
+                        <label class="form-label">Destination</label>
+                        <div class="input-box">
+                            <i class="bi bi-geo-alt"></i>
+                            <input type="text" class="form-input" placeholder="Where do you want to go?" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Departure Date</label>
+                        <div class="input-box">
+                            <i class="bi bi-calendar-event"></i>
+                            <input type="date" class="form-input" id="holiday-departure" value="2026-01-03" required>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Duration</label>
+                        <div class="input-box">
+                            <i class="bi bi-clock"></i>
+                            <select class="form-input" id="holiday-duration">
+                                <option value="7">7 nights</option>
+                                <option value="10">10 nights</option>
+                                <option value="14">14 nights</option>
+                                <option value="21">21 nights</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label class="form-label">Hotel Rating</label>
+                        <div class="input-box">
+                            <i class="bi bi-star"></i>
+                            <select class="form-input" id="holiday-rating">
+                                <option value="">Any Rating</option>
+                                <option value="5">5 Stars</option>
+                                <option value="4">4 Stars</option>
+                                <option value="3">3 Stars</option>
+                            </select>
+                        </div>
+                    </div>
+                </div>
+                  <div class="text-center mt-4">
+                    <button type="submit" class="btn-search btn-lg">
+                        <i class="bi bi-search me-2"></i> SEARCH HOLIDAYS
+                    </button>
+                </div>
+
+               
+                </div>              
+            </form>
+        </div>
+    </div>
+</section>
+
+
+
+
+<!---------------------------------------------FIRST-COURSEL-------------------------------------------------------------------->
+
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold m-0">Budget beach holidays on sale</h2>
+        <a href="#" class="btn btn-outline-primary rounded-pill px-4">See more</a>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-12 col-sm-3 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/france.jpg" alt="France">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Hotel France East</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> Costa France,Italy</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£493</span>
+                            <div class="h5 fw-bold mb-0">£239<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £15</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/hawai.jpg" alt="Hawai">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Hawai Hotel & Spa</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> hawai,content</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£651</span>
+                            <div class="h5 fw-bold mb-0">£299<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £53</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/dubai.webp" alt="Dubai">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Dubai Hotel & Spa</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> Dubai,content burj-khalifa</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£651</span>
+                            <div class="h5 fw-bold mb-0">£299<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £53</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/qatar.webp" alt="Qatar">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Qatar Hotel & Spa</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> Qatar-content</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£651</span>
+                            <div class="h5 fw-bold mb-0">£299<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £53</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/egypt.webp" alt="Egypt">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Egypt Hotel & Spa</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> egypt content</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£651</span>
+                            <div class="h5 fw-bold mb-0">£299<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £53</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+
+
+
+<div id="cardCarousel" class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-inner">
+        <div class="carousel-item active">
+            <div class="row g-4 px-5">
+                <div class="col-md-3">
+                   </div>
+                <div class="col-md-3">
+                   </div>
+                </div>
+        </div>
+
+        <div class="carousel-item">
+            <div class="row g-4 px-5">
+                </div>
+        </div>
+    </div>
+
+    <button class="carousel-control-prev" type="button" data-bs-target="#cardCarousel" data-bs-slide="prev" style="width: 5%; background: rgba(0,0,0,0.1);">
+        <span class="carousel-control-prev-icon"></span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#cardCarousel" data-bs-slide="next" style="width: 5%; background: rgba(0,0,0,0.1);">
+        <span class="carousel-control-next-icon"></span>
+    </button>
+</div>
+
+
+
+
+
+
+
+<!-----------------------------second-coursol---------------------------------------------->
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold m-0">City break steals from £139 per person</h2>
+        <a href="#" class="btn btn-outline-primary rounded-pill px-4">See more</a>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-12 col-sm-3 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/france.jpg" alt="France">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Hotel France East</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> Costa France,Italy</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£493</span>
+                            <div class="h5 fw-bold mb-0">£239<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £15</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/hawai.jpg" alt="Hawai">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Hawai Hotel & Spa</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> hawai,content</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£651</span>
+                            <div class="h5 fw-bold mb-0">£299<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £53</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/dubai.webp" alt="Dubai">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Dubai Hotel & Spa</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> Dubai,content burj-khalifa</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£651</span>
+                            <div class="h5 fw-bold mb-0">£299<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £53</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/qatar.webp" alt="Qatar">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Qatar Hotel & Spa</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> Qatar-content</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£651</span>
+                            <div class="h5 fw-bold mb-0">£299<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £53</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/egypt.webp" alt="Egypt">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Egypt Hotel & Spa</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> egypt content</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£651</span>
+                            <div class="h5 fw-bold mb-0">£299<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £53</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!-----------------------------third-coursol---------------------------------------------->
+
+<div class="container py-5">
+    <div class="d-flex justify-content-between align-items-center mb-4">
+        <h2 class="fw-bold m-0">Deals on long haul adventures from £519 per person</h2>
+        <a href="#" class="btn btn-outline-primary rounded-pill px-4">See more</a>
+    </div>
+
+    <div class="row g-3">
+        <div class="col-12 col-sm-3 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/france.jpg" alt="France">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Hotel France East</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> Costa France,Italy</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£493</span>
+                            <div class="h5 fw-bold mb-0">£239<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £15</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/hawai.jpg" alt="Hawai">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Hawai Hotel & Spa</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> hawai,content</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£651</span>
+                            <div class="h5 fw-bold mb-0">£299<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £53</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/dubai.webp" alt="Dubai">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Dubai Hotel & Spa</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> Dubai,content burj-khalifa</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£651</span>
+                            <div class="h5 fw-bold mb-0">£299<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £53</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/qatar.webp" alt="Qatar">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Qatar Hotel & Spa</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> Qatar-content</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£651</span>
+                            <div class="h5 fw-bold mb-0">£299<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £53</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+        <div class="col-12 col-sm-6 col-lg-3">
+            <a href="#" class="holiday-card">
+                <div class="img-wrapper">
+                    <span class="badge-sale">Sale</span>
+                    <img src="img/egypt.webp" alt="Egypt">
+                </div>
+                <div class="p-3">
+                    <div class="text-warning mb-1"><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i><i class="bi bi-star-fill"></i></div>
+                    <h6 class="fw-bold mb-1">Egypt Hotel & Spa</h6>
+                    <p class="small text-muted mb-3"><i class="bi bi-geo-alt"></i> egypt content</p>
+                    <div class="d-flex justify-content-between align-items-end">
+                        <div>
+                            <span class="text-decoration-line-through text-muted small">£651</span>
+                            <div class="h5 fw-bold mb-0">£299<small class="fw-normal">pp</small></div>
+                        </div>
+                        <div class="badge bg-success">Save £53</div>
+                    </div>
+                </div>
+            </a>
+        </div>
+    </div>
+</div>
+
+<!---------------------------------------------------features------------------------------------------------------->
+<section class="container py-5">
+    <h2 class="fw-bold mb-5">Why book with us</h2>
+    
+    <div class="row g-4">
+        <div class="col-md-4 col-sm-6">
+            <div class="d-flex align-items-start">
+                <div class="feature-icon-circle">
+                    <i class="bi bi-heart"></i>
+                </div>
+                <div class="ms-3">
+                    <div class="feature-title">Loved by millions</div>
+                    <p class="feature-text">Join the 7 million people who've holidayed with us</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="d-flex align-items-start">
+                <div class="feature-icon-circle">
+                    <i class="bi bi-currency-pound"></i>
+                </div>
+                <div class="ms-3">
+                    <div class="feature-title">Spread the cost</div>
+                    <p class="feature-text">Deposits from £19pp and pay monthly options</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="d-flex align-items-start">
+                <div class="feature-icon-circle">
+                    <i class="bi bi-arrow-repeat"></i>
+                </div>
+                <div class="ms-3">
+                    <div class="feature-title">Packaged by us, chosen by you</div>
+                    <p class="feature-text">Find your perfect holiday in a few simple taps</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="d-flex align-items-start">
+                <div class="feature-icon-circle">
+                    <i class="bi bi-shield-check"></i>
+                </div>
+                <div class="ms-3">
+                    <div class="feature-title">ATOL protected</div>
+                    <p class="feature-text">Peace of mind on and before your holiday</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="d-flex align-items-start">
+                <div class="feature-icon-circle">
+                    <i class="bi bi-check2-circle"></i>
+                </div>
+                <div class="ms-3">
+                    <div class="feature-title">Unbeatable prices</div>
+                    <p class="feature-text">Get the best deals with our Best Price Promise</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-4 col-sm-6">
+            <div class="d-flex align-items-start">
+                <div class="feature-icon-circle">
+                    <i class="bi bi-smartphone"></i>
+                </div>
+                <div class="ms-3">
+                    <div class="feature-title">Holidays at your fingertips</div>
+                    <p class="feature-text">Rated 4.9 on the App Store and 4.8 on Google Play</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+
+<!--------------------------------review-coursal------------------------------------------------------------------->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="features-title text-center mb-5">What Our Travelers Say</h2>
+        
+        <div id="reviewCarousel" class="carousel carousel-dark slide" data-bs-ride="carousel">
+            <div class="carousel-indicators">
+                <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="0" class="active" aria-current="true"></button>
+                <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="1"></button>
+                <button type="button" data-bs-target="#reviewCarousel" data-bs-slide-to="2"></button>
+            </div>
+
+            <div class="carousel-inner pb-5">
+                <div class="carousel-item active">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card review-card border-0 shadow-sm p-4 text-center">
+                                <div class="review-stars mb-3">⭐⭐⭐⭐⭐</div>
+                                <p class="lead italic">"The booking process was seamless. Our trip to Italy was perfectly organized from start to finish!"</p>
+                                <div class="mt-4">
+                                    <img src="https://i.pravatar.cc/150?u=1" class="rounded-circle mb-2" width="60" alt="User">
+                                    <h6 class="mb-0">Sarah Jenkins</h6>
+                                    <small class="text-muted">Verified Traveler</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="carousel-item">
+                    <div class="row justify-content-center">
+                        <div class="col-md-8">
+                            <div class="card review-card border-0 shadow-sm p-4 text-center">
+                                <div class="review-stars mb-3">⭐⭐⭐⭐⭐</div>
+                                <p class="lead italic">"Found a luxury hotel at half the price of other sites. Their support team is incredibly helpful."</p>
+                                <div class="mt-4">
+                                    <img src="https://i.pravatar.cc/150?u=2" class="rounded-circle mb-2" width="60" alt="User">
+                                    <h6 class="mb-0">Marcus Chen</h6>
+                                    <small class="text-muted">Business Traveler</small>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#reviewCarousel" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#reviewCarousel" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+</section>
+
+
+
+<!--------------------------------------footer----------------------------------------------------->
+<footer class="pt-5 mt-5">
+    <div class="container">
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="d-flex align-items-center mb-3">
+                    <img src="img/8_1sasa11.jpg" alt="logo" style="width:40px;">
+                    <span class="ms-2 fw-bold text-white h4 mb-0">World-Tour</span>
+                </div>
+                <p>Providing budget-friendly holiday packages and seamless travel experiences since 2010. Your journey starts with a single click.</p>
+                <div class="social-icons mt-4">
+                    <a href="#"><i class="bi bi-facebook"></i></a>
+                    <a href="#"><i class="bi bi-instagram"></i></a>
+                    <a href="#"><i class="bi bi-twitter-x"></i></a>
+                    <a href="#"><i class="bi bi-youtube"></i></a>
+                </div>
+            </div>
+
+            <div class="col-lg-2 col-md-6">
+                <h5>Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Home</a></li>
+                    <li><a href="#">Hot Deals</a></li>
+                    <li><a href="#">Flights</a></li>
+                    <li><a href="#">Hotels</a></li>
+                    <li><a href="#">Holidays</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5>Support</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Privacy Policy</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                    <li><a href="#">Refund Policy</a></li>
+                    <li><a href="#">FAQs</a></li>
+                </ul>
+            </div>
+
+            <div class="col-lg-3 col-md-6">
+                <h5>Contact Info</h5>
+                <ul class="list-unstyled text-white">
+                    <li class="d-flex align-items-start mb-3">
+                        <i class="bi bi-geo-alt-fill me-2 text-primary"></i>
+                        <span>123 Travel Plaza, Liberty Street, Islamabad, Pakistan</span>
+                    </li>
+                    <li class="d-flex align-items-center mb-3">
+                        <i class="bi bi-telephone-fill me-2 text-primary"></i>
+                        <span>+92 222 222222</span>
+                    </li>
+                    <li class="d-flex align-items-center">
+                        <i class="bi bi-envelope-fill me-2 text-primary"></i>
+                        <span>support@worldtour.com</span>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="footer-bottom mt-5">
+        <div class="container">
+            <div class="row align-items-center">
+                <div class="col-md-6 text-center text-md-start">
+                    <p class="mb-0">&copy; 2025 World-Tour Budget Holidays. All Rights Reserved.</p>
+                </div>
+                <div class="col-md-6 text-center text-md-end">
+                    <img src="https://i.imgur.com/vH8996H.png" alt="Payment Methods" style="height: 30px; opacity: 0.8;">
+                </div>
+            </div>
+        </div>
+    </div>
+</footer>
+
+
+<!-- <script>
+    // Initialize Lucide icons
+    lucide.createIcons();
+</script> -->
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    // Tab switching functionality
+    const navLinks = document.querySelectorAll('.search-nav .nav-link');
+    const tabContents = document.querySelectorAll('.search-tab-content');
+    
+    navLinks.forEach(link => {
+        link.addEventListener('click', function() {
+            const tabId = this.getAttribute('data-tab');
+            
+            // Update active tab
+            navLinks.forEach(l => l.classList.remove('active'));
+            this.classList.add('active');
+            
+            // Show corresponding content
+            tabContents.forEach(content => content.style.display = 'none');
+            document.getElementById(`${tabId}-tab`).style.display = 'block';
+        });
+    });
+
+    // Return trip checkbox functionality
+    const returnCheckbox = document.getElementById('return-trip');
+    const returnDateInput = document.getElementById('return-date');
+    const returnDateLabel = document.getElementById('return-date-label');
+    
+    function updateReturnDateVisibility() {
+        if (!returnCheckbox.checked) {
+            returnDateInput.classList.add('return-date-hidden');
+            returnDateInput.removeAttribute('required');
+            returnDateLabel.innerHTML = 'Return Date <small class="text-muted">(Optional)</small>';
+        } else {
+            returnDateInput.classList.remove('return-date-hidden');
+            returnDateInput.setAttribute('required', 'required');
+            returnDateLabel.innerHTML = 'Return Date';
+        }
+    }
+    
+    returnCheckbox.addEventListener('change', updateReturnDateVisibility);
+    updateReturnDateVisibility(); // Initial check
+
+    // Cabin class selector
+    const cabinClassButtons = document.querySelectorAll('.cabin-class-btn');
+    let selectedCabinClass = 'economy';
+    
+    cabinClassButtons.forEach(button => {
+        button.addEventListener('click', function() {
+            cabinClassButtons.forEach(btn => btn.classList.remove('active'));
+            this.classList.add('active');
+            selectedCabinClass = this.getAttribute('data-class');
+        });
+    });
+
+    // Passenger type counters
+    const passengerCounts = {
+        adults: 1,
+        children: 0,
+        infants: 0
+    };
+    
+    const maxPassengers = 10;
+    const childAgeSelector = document.getElementById('child-age-selector');
+    
+    function updatePassengerCounts() {
+        // Update display
+        Object.keys(passengerCounts).forEach(type => {
+            const countElement = document.querySelector(`.passenger-type-count[data-type="${type}"]`);
+            if (countElement) {
+                countElement.textContent = passengerCounts[type];
+            }
+        });
+        
+        // Update total
+        const total = Object.values(passengerCounts).reduce((a, b) => a + b, 0);
+        document.getElementById('total-passengers').textContent = total;
+        
+        // Update minus buttons
+        Object.keys(passengerCounts).forEach(type => {
+            const minusBtn = document.querySelector(`.passenger-type-btn.minus[data-type="${type}"]`);
+            if (minusBtn) {
+                minusBtn.disabled = passengerCounts[type] <= 0;
+            }
+        });
+        
+        // Update plus buttons
+        const allPlusBtns = document.querySelectorAll('.passenger-type-btn.plus');
+        allPlusBtns.forEach(btn => {
+            btn.disabled = total >= maxPassengers;
+        });
+        
+        // Handle child age selector
+        if (passengerCounts.children > 0) {
+            childAgeSelector.style.display = 'block';
+            updateChildAgeInputs();
+        } else {
+            childAgeSelector.style.display = 'none';
+        }
+        
+        // Disable infants if no adults
+        const infantPlusBtn = document.querySelector('.passenger-type-btn.plus[data-type="infants"]');
+        if (infantPlusBtn) {
+            infantPlusBtn.disabled = passengerCounts.adults === 0 || total >= maxPassengers;
+        }
+        
+        // Max 1 infant per adult
+        const infantCountElement = document.querySelector('.passenger-type-count[data-type="infants"]');
+        if (passengerCounts.infants > passengerCounts.adults) {
+            passengerCounts.infants = passengerCounts.adults;
+            if (infantCountElement) {
+                infantCountElement.textContent = passengerCounts.infants;
+            }
+        }
+    }
+    
+    function updateChildAgeInputs() {
+        childAgeSelector.innerHTML = '<div class="form-label mb-2">Child Ages (2-11 years)</div>';
+        
+        for (let i = 1; i <= passengerCounts.children; i++) {
+            const ageItem = document.createElement('div');
+            ageItem.className = 'child-age-item';
+            ageItem.innerHTML = `
+                <span class="child-age-label">Child ${i}</span>
+                <select class="child-age-select" name="child-age-${i}">
+                    <option value="2">2 years</option>
+                    <option value="3">3 years</option>
+                    <option value="4">4 years</option>
+                    <option value="5">5 years</option>
+                    <option value="6">6 years</option>
+                    <option value="7">7 years</option>
+                    <option value="8">8 years</option>
+                    <option value="9">9 years</option>
+                    <option value="10">10 years</option>
+                    <option value="11">11 years</option>
+                </select>
+            `;
+            childAgeSelector.appendChild(ageItem);
+        }
+    }
+    
+    // Add event listeners to passenger buttons
+    document.querySelectorAll('.passenger-type-btn').forEach(button => {
+        button.addEventListener('click', function() {
+            const type = this.getAttribute('data-type');
+            const isPlus = this.classList.contains('plus');
+            
+            if (isPlus) {
+                // Check if we can add more passengers
+                const total = Object.values(passengerCounts).reduce((a, b) => a + b, 0);
+                if (total < maxPassengers) {
+                    // Special rule for infants
+                    if (type === 'infants' && passengerCounts.infants >= passengerCounts.adults) {
+                        alert('Maximum 1 infant per adult');
+                        return;
+                    }
+                    passengerCounts[type]++;
+                }
+            } else {
+                if (passengerCounts[type] > 0) {
+                    passengerCounts[type]--;
+                }
+            }
+            
+            updatePassengerCounts();
+        });
+    });
+
+    // Form submission
+    const flightForm = document.getElementById('flight-form');
+    flightForm.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Collect form data
+        const formData = {
+            from: this.querySelector('input[placeholder*="LHR"]').value,
+            to: this.querySelector('input[placeholder*="JFK"]').value,
+            departureDate: this.querySelector('#departure-date').value,
+            returnDate: returnCheckbox.checked ? this.querySelector('#return-date').value : 'One-way',
+            cabinClass: selectedCabinClass,
+            passengers: passengerCounts,
+            directFlights: document.getElementById('direct-flights').checked,
+            flexibleDates: document.getElementById('flexible-dates').checked,
+            contact: {
+                name: this.querySelector('input[placeholder*="full name"]').value,
+                email: this.querySelector('input[placeholder*="email"]').value,
+                phone: this.querySelector('input[placeholder*="Phone"]').value
+            }
+        };
+        
+        // In a real app, you would send this data to a server
+        console.log('Flight search submitted:', formData);
+        
+        // Show success message
+        alert(`Flight search submitted!\n\nFrom: ${formData.from}\nTo: ${formData.to}\nCabin: ${formData.cabinClass}\nPassengers: Adults: ${formData.passengers.adults}, Children: ${formData.passengers.children}, Infants: ${formData.passengers.infants}`);
+    });
+    
+    // Set minimum date to today for date inputs
+    const today = new Date().toISOString().split('T')[0];
+    document.querySelectorAll('input[type="date"]').forEach(input => {
+        input.min = today;
+    });
+    
+    // Initialize with flight tab active
+    document.getElementById('flight-tab').style.display = 'block';
+    updatePassengerCounts(); // Initial update
+});
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
